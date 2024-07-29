@@ -1,0 +1,24 @@
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 4px;
+  text-align: center;
+}
+
+th {
+  writing-mode: vertical-lr;
+}
+
+th:first-child {
+  writing-mode: horizontal-tb;
+}
+
+th > span {
+  display: block;
+  margin-bottom: 6px;
+}

@@ -5,13 +5,12 @@ import {
   addRow,
   deleteRow,
   editRow,
-} from '../utils/table';
-import Row from './Row';
-import Modal from './Modal';
-
-import '../styles/table.css';
-import '../styles/buttons.css';
-import Loader from './Loader';
+} from '../../lib/table';
+import Row from './row/Row';
+import Modal from '../modal/Modal';
+import Button from '../button/Button';
+import Loader from '../loader/Loader';
+import './table.module.scss';
 
 const Table: React.FC = () => {
   const [columns, setColumns] = useState<string[]>([]);
@@ -47,16 +46,16 @@ const Table: React.FC = () => {
     switch (operation) {
       case 'deleteRow':
         if (rowIndex !== null) {
-          deleteRow(rowIndex, rows, setRows);
+          setRows(deleteRow(rowIndex, rows));
         }
         break;
       case 'editRow':
         if (rowIndex !== null) {
-          editRow(rowIndex, rows, setRows);
+          setRows(editRow(rowIndex, rows));
         }
         break;
       case 'addRow':
-        addRow({ rows, setRows, columns });
+        setRows(addRow({ rows, columns }));
         break;
       default:
         break;
@@ -80,17 +79,16 @@ const Table: React.FC = () => {
           <thead>
             <tr>
               <th>
-                <span className="rows-count">
-                  Количество строк: {rows.length}
-                </span>
-                <button
+                <span>Количество строк: {rows.length}</span>
+
+                <Button
                   className="button button-standard"
                   onClick={() =>
                     handleOperationRow({ index: null, operation: 'addRow' })
                   }
                 >
                   Добавить строку
-                </button>
+                </Button>
               </th>
               <th></th>
               {columns &&
