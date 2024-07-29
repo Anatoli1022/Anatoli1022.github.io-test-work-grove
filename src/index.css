@@ -41,6 +41,8 @@ td {
 td:first-child {
   display: flex;
   column-gap: 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
 }
 
 th {
