@@ -9,6 +9,10 @@ import {
 import Row from './Row';
 import Modal from './Modal';
 
+import '../styles/table.css';
+import '../styles/buttons.css';
+import Loader from './Loader';
+
 const Table: React.FC = () => {
   const [columns, setColumns] = useState<string[]>([]);
   const [rows, setRows] = useState<{ title: string; cells: boolean[] }[]>([]);
@@ -65,36 +69,51 @@ const Table: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  if (!rows.length) {
+    return <Loader />;
+  }
+
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            {columns &&
-              columns.map((colum, index) => <th key={index}>{colum}</th>)}
-          </tr>
-        </thead>
+      <div className="wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <span className="rows-count">
+                  Количество строк: {rows.length}
+                </span>
+                <button
+                  className="button button-standard"
+                  onClick={() =>
+                    handleOperationRow({ index: null, operation: 'addRow' })
+                  }
+                >
+                  Добавить строку
+                </button>
+              </th>
+              <th></th>
+              {columns &&
+                columns.map((colum, index) => <th key={index}>{colum}</th>)}
+            </tr>
+          </thead>
 
-        <tbody>
-          {rows.map((row, index) => (
-            <Row
-              key={index}
-              row={row}
-              onDelete={() =>
-                handleOperationRow({ index, operation: 'deleteRow' })
-              }
-              onEdit={() => handleOperationRow({ index, operation: 'editRow' })}
-            />
-          ))}
-        </tbody>
-      </table>
-      <button
-        onClick={() => handleOperationRow({ index: null, operation: 'addRow' })}
-      >
-        Добавить строку
-      </button>
+          <tbody>
+            {rows.map((row, index) => (
+              <Row
+                key={index}
+                row={row}
+                onDelete={() =>
+                  handleOperationRow({ index, operation: 'deleteRow' })
+                }
+                onEdit={() =>
+                  handleOperationRow({ index, operation: 'editRow' })
+                }
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {isModalOpen && (
         <Modal operation={operation} confirm={confirm} cancel={cancel} />

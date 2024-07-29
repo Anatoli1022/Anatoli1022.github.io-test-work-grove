@@ -1,5 +1,6 @@
 import React from 'react';
 import Cell from './Cell';
+import '../styles/buttons.css';
 
 interface RowProps {
   row: { title: string; cells: boolean[] };
@@ -10,12 +11,16 @@ interface RowProps {
 const Row: React.FC<RowProps> = ({ row, onDelete, onEdit }) => (
   <tr>
     <td>
-      <button onClick={onEdit}>Редактировать</button>
-      <button onClick={onDelete}>Удалить</button>
+      <button className="button button-standard" onClick={onEdit}>
+        Редактировать
+      </button>
+      <button className="button button-standard" onClick={onDelete}>
+        Удалить
+      </button>
     </td>
     <td>{row.title}</td>
     {row.cells.map((cell, cellIndex) => (
-      <Cell key={cellIndex} index={cellIndex} value={cell} />
+      <Cell key={cellIndex} value={cell} />
     ))}
   </tr>
 );

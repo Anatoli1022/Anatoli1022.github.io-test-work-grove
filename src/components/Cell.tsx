@@ -1,19 +1,14 @@
-import React from 'react';
-
 interface CellProps {
   value: boolean;
-  index: number;
 }
 
-const Cell: React.FC<CellProps> = ({ index, value }) => {
+const Cell: React.FC<CellProps> = ({ value }) => {
   return (
     <td
       style={{
         backgroundColor: value ? 'lightgreen' : 'lightcoral',
       }}
-    >
-      {index}
-    </td>
+    ></td>
   );
 };
 

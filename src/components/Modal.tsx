@@ -1,4 +1,5 @@
 import '../styles/modal.css';
+import '../styles/buttons.css';
 
 const Modal = ({
   operation,
@@ -23,9 +24,20 @@ const Modal = ({
   };
   return (
     <div className="modal">
-      <p>{getModalMessage(operation)}</p>
-      <button onClick={() => confirm(operation)}>Да</button>
-      <button onClick={cancel}>Нет</button>
+      <div className="modal-content">
+        <p className="text">{getModalMessage(operation)}</p>
+        <div className="wrapper-buttons">
+          <button
+            className="button button-confirm"
+            onClick={() => confirm(operation)}
+          >
+            Да
+          </button>
+          <button className="button button-cancel" onClick={cancel}>
+            Нет
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
