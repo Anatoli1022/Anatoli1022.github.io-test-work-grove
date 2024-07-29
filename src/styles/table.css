@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 1920px;
+  margin: auto;
+}
+
+.rows-count {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/*Global styles for the table in the file index.css*/

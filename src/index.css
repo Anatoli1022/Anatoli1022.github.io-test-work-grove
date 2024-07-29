@@ -24,15 +24,29 @@ ul {
   text-decoration: none;
   list-style: none;
 }
-table,
+
+/*Global styles for table*/
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
 th,
 td {
   border: 1px solid #ddd;
   border-collapse: collapse;
+  padding: 4px;
+  text-align: center;
 }
 
-th,
-td {
-  padding: 10px;
-  text-align: center;
+td:first-child {
+  display: flex;
+  column-gap: 10px;
+}
+
+th {
+  writing-mode: vertical-lr;
+}
+
+th:first-child {
+  writing-mode: horizontal-tb;
 }
