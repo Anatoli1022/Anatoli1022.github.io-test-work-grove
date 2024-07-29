@@ -1,4 +1,4 @@
-th {
+.thVertical {
   writing-mode: vertical-lr;
 }
 
@@ -9,6 +9,16 @@ th:first-child {
 .text {
   display: block;
 }
-.th-vertical {
-  writing-mode: vertical-lr;
+
+.table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 4px;
+  text-align: center;
 }

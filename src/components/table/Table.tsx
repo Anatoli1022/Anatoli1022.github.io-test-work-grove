@@ -10,7 +10,7 @@ import Row from './row/Row';
 import Modal from '../modal/Modal';
 import Button from '../button/Button';
 import Loader from '../loader/Loader';
-import './table.module.scss';
+import styles from './table.module.scss';
 
 const Table: React.FC = () => {
   const [columns, setColumns] = useState<string[]>([]);
@@ -74,12 +74,14 @@ const Table: React.FC = () => {
 
   return (
     <div>
-      <div className="wrapper">
-        <table>
+      <div className={styles.wrapper}>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>
-                <span className="text">Количество строк: {rows.length}</span>
+                <span className={styles.text}>
+                  Количество строк: {rows.length}
+                </span>
 
                 <Button
                   className="button button-standard"
@@ -92,7 +94,11 @@ const Table: React.FC = () => {
               </th>
               <th></th>
               {columns &&
-                columns.map((colum, index) => <th key={index} className='th-vertical'>{colum}</th>)}
+                columns.map((colum, index) => (
+                  <th key={index} className={styles.thVertical}>
+                    {colum}
+                  </th>
+                ))}
             </tr>
           </thead>
 
