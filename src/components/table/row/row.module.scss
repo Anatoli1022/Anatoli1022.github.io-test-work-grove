@@ -2,6 +2,11 @@ td > button:first-child {
   margin-right: 10px;
 }
 
-td > button {
-  margin-top: 6px;
+
+th,
+td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 4px;
+  text-align: center;
 }

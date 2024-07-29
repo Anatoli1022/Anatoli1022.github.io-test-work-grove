@@ -25,3 +25,19 @@ ul {
   list-style: none;
 }
 
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 4px;
+  text-align: center;
+}
+
+th:first-child {
+  writing-mode: horizontal-tb;
+}

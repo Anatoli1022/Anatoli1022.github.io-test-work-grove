@@ -79,7 +79,7 @@ const Table: React.FC = () => {
           <thead>
             <tr>
               <th>
-                <span>Количество строк: {rows.length}</span>
+                <span className="text">Количество строк: {rows.length}</span>
 
                 <Button
                   className="button button-standard"
@@ -92,7 +92,7 @@ const Table: React.FC = () => {
               </th>
               <th></th>
               {columns &&
-                columns.map((colum, index) => <th key={index}>{colum}</th>)}
+                columns.map((colum, index) => <th key={index} className='th-vertical'>{colum}</th>)}
             </tr>
           </thead>
 
